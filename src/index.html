@@ -1,15 +1,219 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team RSVP Manager</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <app-rsvp-manager></app-rsvp-manager>
+  <div class="rsvp-container">
+    <header class="header">
+      <h1><i class="fas fa-calendar-check"></i> Team RSVP Manager</h1>
+      <p class="subtitle">Manage event attendance with ease</p>
+    </header>
+
+    <div class="dashboard">
+      <div class="stats-card">
+        <div class="stat-item total">
+          <div class="stat-icon"><i class="fas fa-users"></i></div>
+          <div class="stat-details">
+            <span class="stat-value">5</span>
+            <span class="stat-label">Total</span>
+          </div>
+        </div>
+        <div class="stat-item confirmed">
+          <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+          <div class="stat-details">
+            <span class="stat-value">0</span>
+            <span class="stat-label">Confirmed</span>
+          </div>
+        </div>
+        <div class="stat-item declined">
+          <div class="stat-icon"><i class="fas fa-times-circle"></i></div>
+          <div class="stat-details">
+            <span class="stat-value">0</span>
+            <span class="stat-label">Declined</span>
+          </div>
+        </div>
+        <div class="stat-item maybe">
+          <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
+          <div class="stat-details">
+            <span class="stat-value">0</span>
+            <span class="stat-label">Maybe</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-content">
+        <section class="player-section card">
+          <h2><i class="fas fa-list"></i> All Team Members</h2>
+          <div class="add-player-container">
+            <button class="add-player-btn">
+              <i class="fas fa-plus"></i> Add Player
+            </button>
+          </div>
+          <div class="player-list">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>RSVP Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="player-name">
+                      <span class="avatar">J</span>
+                      John Doe
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge yes">
+                      Yes
+                    </span>
+                  </td>
+                  <td class="actions">
+                    <div class="rsvp-buttons">
+                      <button class="btn yes active">
+                        <i class="fas fa-check"></i>
+                      </button>
+                      <button class="btn no">
+                        <i class="fas fa-times"></i>
+                      </button>
+                      <button class="btn maybe">
+                        <i class="fas fa-question"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="player-name">
+                      <span class="avatar">J</span>
+                      Jane Smith
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge no">
+                      No
+                    </span>
+                  </td>
+                  <td class="actions">
+                    <div class="rsvp-buttons">
+                      <button class="btn yes">
+                        <i class="fas fa-check"></i>
+                      </button>
+                      <button class="btn no active">
+                        <i class="fas fa-times"></i>
+                      </button>
+                      <button class="btn maybe">
+                        <i class="fas fa-question"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="player-name">
+                      <span class="avatar">B</span>
+                      Bob Johnson
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge maybe">
+                      Maybe
+                    </span>
+                  </td>
+                  <td class="actions">
+                    <div class="rsvp-buttons">
+                      <button class="btn yes">
+                        <i class="fas fa-check"></i>
+                      </button>
+                      <button class="btn no">
+                        <i class="fas fa-times"></i>
+                      </button>
+                      <button class="btn maybe active">
+                        <i class="fas fa-question"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="player-name">
+                      <span class="avatar">A</span>
+                      Alice Williams
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge yes">
+                      Yes
+                    </span>
+                  </td>
+                  <td class="actions">
+                    <div class="rsvp-buttons">
+                      <button class="btn yes active">
+                        <i class="fas fa-check"></i>
+                      </button>
+                      <button class="btn no">
+                        <i class="fas fa-times"></i>
+                      </button>
+                      <button class="btn maybe">
+                        <i class="fas fa-question"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="player-name">
+                      <span class="avatar">M</span>
+                      Michael Brown
+                    </div>
+                  </td>
+                  <td>
+                    <span class="status-badge maybe">
+                      Maybe
+                    </span>
+                  </td>
+                  <td class="actions">
+                    <div class="rsvp-buttons">
+                      <button class="btn yes">
+                        <i class="fas fa-check"></i>
+                      </button>
+                      <button class="btn no">
+                        <i class="fas fa-times"></i>
+                      </button>
+                      <button class="btn maybe active">
+                        <i class="fas fa-question"></i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="confirmed-section card">
+          <h2><i class="fas fa-check-circle"></i> Confirmed Attendees</h2>
+          <div class="confirmed-list">
+            <!-- Confirmed attendees will be populated dynamically by JavaScript -->
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <p>Team RSVP Manager &copy; 2025 by Nevil Padariya</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html> 
