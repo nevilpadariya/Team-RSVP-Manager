@@ -60,4 +60,52 @@ The `RsvpManagerComponent` demonstrates how to use the service in a real applica
 
 - Displaying a list of all players with dropdown selectors for RSVP status
 - Showing statistics about response counts
-- Displaying a filtered list of confirmed attendees # Team-RSVP-Manager
+- Displaying a filtered list of confirmed attendees
+
+## Local Development
+
+To run this project locally:
+
+```bash
+npm install
+npm start
+```
+
+Visit `http://localhost:4200` in your browser.
+
+## Deployment to Vercel
+
+This project is configured for deployment on Vercel.
+
+### Deployment Steps
+
+1. Install the Vercel CLI:
+   ```bash
+   npm i -g vercel
+   ```
+
+2. Login to Vercel:
+   ```bash
+   vercel login
+   ```
+
+3. Deploy the project (from the project root):
+   ```bash
+   vercel
+   ```
+
+4. Follow the prompts to complete the deployment.
+
+Alternatively, connect your GitHub repository to Vercel for automatic deployments.
+
+### Manual Deployment Steps
+
+1. Create a new project on the [Vercel Dashboard](https://vercel.com/new)
+2. Import your GitHub repository
+3. Keep the default settings and deploy
+
+## Technologies Used
+
+- HTML/CSS/JavaScript
+- Express.js for server
+- Vercel for deployment
