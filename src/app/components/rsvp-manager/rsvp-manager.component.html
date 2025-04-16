@@ -1,0 +1,124 @@
+<div class="rsvp-container">
+  <header class="header">
+    <h1><i class="fas fa-calendar-check"></i> Team RSVP Manager</h1>
+    <p class="subtitle">Manage event attendance with ease</p>
+  </header>
+
+  <div class="dashboard">
+    <div class="stats-card">
+      <div class="stat-item total">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-details">
+          <span class="stat-value">{{responseCounts.total}}</span>
+          <span class="stat-label">Total</span>
+        </div>
+      </div>
+      <div class="stat-item confirmed">
+        <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="stat-details">
+          <span class="stat-value">{{responseCounts.confirmed}}</span>
+          <span class="stat-label">Confirmed</span>
+        </div>
+      </div>
+      <div class="stat-item declined">
+        <div class="stat-icon"><i class="fas fa-times-circle"></i></div>
+        <div class="stat-details">
+          <span class="stat-value">{{responseCounts.declined}}</span>
+          <span class="stat-label">Declined</span>
+        </div>
+      </div>
+      <div class="stat-item maybe">
+        <div class="stat-icon"><i class="fas fa-question-circle"></i></div>
+        <div class="stat-details">
+          <span class="stat-value">{{responseCounts.total - responseCounts.confirmed - responseCounts.declined}}</span>
+          <span class="stat-label">Maybe</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <section class="player-section card">
+        <h2><i class="fas fa-list"></i> All Team Members</h2>
+        <div class="add-player-container">
+          <button *ngIf="!showAddPlayerForm" class="add-player-btn" (click)="toggleAddPlayerForm()">
+            <i class="fas fa-plus"></i> Add Player
+          </button>
+          <div *ngIf="showAddPlayerForm" class="add-player-form">
+            <input 
+              type="text" 
+              id="newPlayerInput"
+              [(ngModel)]="newPlayerName" 
+              placeholder="Enter player name" 
+              (keyup.enter)="addPlayer()">
+            <div class="form-actions">
+              <button class="btn-save" (click)="addPlayer()">
+                <i class="fas fa-save"></i> Save
+              </button>
+              <button class="btn-cancel" (click)="toggleAddPlayerForm()">
+                <i class="fas fa-times"></i> Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="player-list">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>RSVP Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let player of players" [class.confirmed]="selectedStatuses[player.id] === 'Yes'" 
+                  [class.declined]="selectedStatuses[player.id] === 'No'" 
+                  [class.maybe]="selectedStatuses[player.id] === 'Maybe'">
+                <td>
+                  <div class="player-name">
+                    <span class="avatar">{{player.name.charAt(0)}}</span>
+                    {{player.name}}
+                  </div>
+                </td>
+                <td>
+                  <span class="status-badge" [class]="selectedStatuses[player.id].toLowerCase()">
+                    {{selectedStatuses[player.id]}}
+                  </span>
+                </td>
+                <td class="actions">
+                  <div class="rsvp-buttons">
+                    <button class="btn yes" [class.active]="selectedStatuses[player.id] === 'Yes'"
+                            (click)="updateRsvp(player, 'Yes')">
+                      <i class="fas fa-check"></i>
+                    </button>
+                    <button class="btn no" [class.active]="selectedStatuses[player.id] === 'No'"
+                            (click)="updateRsvp(player, 'No')">
+                      <i class="fas fa-times"></i>
+                    </button>
+                    <button class="btn maybe" [class.active]="selectedStatuses[player.id] === 'Maybe'"
+                            (click)="updateRsvp(player, 'Maybe')">
+                      <i class="fas fa-question"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="confirmed-section card" *ngIf="confirmedAttendees.length > 0">
+        <h2><i class="fas fa-check-circle"></i> Confirmed Attendees</h2>
+        <div class="confirmed-list">
+          <div class="attendee-card" *ngFor="let player of confirmedAttendees">
+            <div class="attendee-avatar">{{player.name.charAt(0)}}</div>
+            <div class="attendee-name">{{player.name}}</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>Team RSVP Manager &copy; 2025</p>
+  </footer>
+</div> 
